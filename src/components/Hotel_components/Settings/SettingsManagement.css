@@ -1,0 +1,278 @@
+
+/* SettingsManagement.css */
+
+/* Re-using and extending the design system from previous sections */
+:root {
+    --primary-color: #4CAF50; /* A friendly green */
+    --secondary-color: #2196F3; /* A calm blue */
+    --accent-color: #FFC107; /* A vibrant yellow for highlights */
+    --danger-color: #F44336; /* A clear red for warnings */
+    --text-color: #333;
+    --light-text-color: #666;
+    --background-light: #f4f6f9;
+    --card-background: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+}
+
+.settings-management-container {
+    padding: 30px;
+    max-width: 900px; /* Slightly narrower for settings */
+    margin: 30px auto;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+.settings-dashboard-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--border-color);
+    letter-spacing: 0.5px;
+}
+
+/* Settings Navigation (reused from Reports, but tailored) */
+.settings-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 10px;
+    background-color: #e0f2f7; /* Light blueish background for nav */
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+}
+
+.nav-button {
+    background-color: transparent;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #495057;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease-out;
+    transform: translateX(-50%);
+}
+
+.nav-button:hover {
+    color: var(--secondary-color);
+    background-color: rgba(33, 150, 243, 0.05);
+}
+
+.nav-button.active {
+    color: var(--primary-color);
+    background-color: rgba(76, 175, 80, 0.08);
+}
+
+.nav-button.active::after {
+    width: 100%;
+}
+
+.setting-content-display {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+/* Individual Setting Section Styling */
+.setting-section {
+    padding: 0;
+}
+
+.setting-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+/* Card Styling for Forms and Displays */
+.profile-card,
+.password-change-card {
+    background-color: #fcfdff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-color);
+    max-width: 600px; /* Keep forms a reasonable width */
+    margin: 0 auto;
+}
+
+/* Profile Display Styles */
+.profile-display {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.profile-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #f0f0f0;
+}
+
+.profile-item:last-child {
+    border-bottom: none;
+}
+
+.profile-item strong {
+    flex-basis: 150px; /* Fixed width for labels */
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.profile-item span {
+    flex-grow: 1;
+    color: var(--light-text-color);
+    font-size: 16px;
+}
+
+.edit-button {
+    margin-top: 20px;
+    align-self: flex-end; /* Pushes button to the right */
+    margin-left: auto; /* For auto margin alignment */
+}
+
+/* Form Styles (reused from previous sections) */
+.profile-form,
+.password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--light-text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="date"] {
+    padding: 12px 15px;
+    border: 1px solid #caced4;
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    background-color: #fcfcfc;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.form-group input:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    color: #6c757d;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Action Buttons (reused from previous sections) */
+.action-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button:hover {
+    background-color: #1a7bbd;
+    box-shadow: var(--shadow-light);
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+}
+.primary-button:hover {
+    background-color: #43a047;
+}
+
+.secondary-button {
+    background-color: #6c757d; /* Grey */
+}
+.secondary-button:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .settings-navigation {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .nav-button {
+        text-align: center;
+    }
+
+    .profile-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .profile-item strong {
+        margin-bottom: 5px;
+        flex-basis: auto;
+    }
+}

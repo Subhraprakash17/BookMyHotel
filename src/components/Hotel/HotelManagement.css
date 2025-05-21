@@ -1,0 +1,454 @@
+/* HotelManagement.css */
+
+/* Design System Variables */
+:root {
+    --primary-color: #66BB6A; /* A slightly more vibrant green */
+    --secondary-color: #42A5F5; /* A brighter blue */
+    --accent-color: #FFA726; /* A warmer orange */
+    --danger-color: #EF5350; /* A clearer red */
+    --text-color: #424242; /* Darker grey for better contrast */
+    --light-text-color: #757575; /* Lighter grey */
+    --background-light: #E0F2F1; /* A light teal/mint background */
+    --card-background: #FFFFFF;
+    --border-color: #E0E0E0;
+    --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly more pronounced */
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Container for Hotel Management Page */
+.hotel-management__container {
+    padding: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Page Title */
+.hotel-management__title {
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #B2DFDB;
+    letter-spacing: 0.3px;
+}
+
+/* Add New Hotel Button */
+.hotel-management__add-btn {
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+}
+
+.hotel-management__add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Table Wrapper for Responsiveness and Styling */
+.hotel-management__table-wrapper {
+    overflow-x: auto; /* Allows horizontal scrolling for table on small screens */
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-light);
+}
+
+/* Modern Table Styles */
+.modern-table {
+    width: 100%;
+    border-collapse: collapse; /* Removes space between table cells */
+    margin-top: 0;
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ECEFF1;
+    text-align: left;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.modern-table th {
+    background-color: #F5F5F5;
+    color: var(--text-color);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    position: sticky; /* Keeps table headers visible on scroll */
+    top: 0;
+    z-index: 2;
+}
+
+.modern-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.modern-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.modern-table tbody tr:last-child td {
+    border-bottom: none; /* No bottom border on the last row */
+}
+
+.modern-table tbody tr:hover {
+    background-color: #F9FBE7; /* Subtle highlight on row hover */
+}
+
+.hotel-management__td-actions {
+    white-space: nowrap; /* Prevents action buttons from wrapping */
+}
+
+/* Generic Action Button Styles */
+.action-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-light);
+}
+
+.action-button:hover {
+    background-color: #1E88E5;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Specific Button Color Variants */
+.primary-button {
+    background-color: var(--primary-color);
+}
+.primary-button:hover {
+    background-color: #4CAF50;
+}
+
+.secondary-button {
+    background-color: #78909C;
+    margin-left: 8px;
+    margin-top: 20px;
+    height: 42px;
+}
+.secondary-button:hover {
+    background-color: #546E7A;
+}
+
+.danger-button {
+    background-color: var(--danger-color);
+    margin-left: 8px;
+}
+.danger-button:hover {
+    background-color: #D32F2F;
+}
+
+.small-button {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+/* Message for Empty Table Data */
+.no-data-message {
+    text-align: center;
+    padding: 20px;
+    color: var(--light-text-color);
+    font-style: italic;
+    font-size: 14px;
+    background-color: #F5F5F5;
+    border-radius: 6px;
+    margin-top: 20px;
+    border: 1px dashed #BDBDBD;
+}
+
+/* Status Badges (for table display) */
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.status-paid-badge { /* Used for 'Active' status */
+    background-color: #C8E6C9; /* Light green */
+    color: #388E3C; /* Darker green */
+}
+.status-pending-badge { /* Used for 'Under Renovation' status */
+    background-color: #FFF9C4; /* Light yellow */
+    color: #F9A825; /* Amber */
+}
+.status-failed-badge { /* Used for 'Inactive' status */
+    background-color: #FFCDD2; /* Light red */
+    color: #D32F2F; /* Darker red */
+}
+.status-default-badge { /* Fallback for other statuses */
+    background-color: #EEEEEE;
+    color: #616161;
+}
+
+
+/* Modal Overlay (background behind the popup) */
+.modal-overlay {
+    position: fixed; /* Stays fixed in the viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures it's on top of other content */
+}
+
+/* Modal Content (the actual popup form container) */
+.modal-content {
+    background-color: var(--card-background);
+    padding: 20px; /* Reduced padding for smaller form */
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+    max-width: 450px; /* Reduced max-width for a smaller form */
+    width: 90%; /* Responsive width */
+    position: relative;
+    animation: fadeInScale 0.3s ease-out forwards; /* Smooth entrance animation */
+
+    /* Styles for scrollability and sticky footer */
+    max-height: 90vh; /* Set maximum height to 90% of viewport height */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+    display: flex; /* Use flexbox to organize content and sticky footer */
+    flex-direction: column; /* Stack children vertically */
+}
+
+/* Modal Title */
+.modal-title {
+    font-size: 22px; /* Slightly smaller title */
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 15px; /* Reduced margin */
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E0E0E0;
+    flex-shrink: 0; /* Prevents title from shrinking when content scrolls */
+}
+
+/* Modal Description (optional text within modal) */
+.modal-description {
+    font-size: 13px; /* Slightly smaller font */
+    color: var(--light-text-color);
+    text-align: center;
+    margin-bottom: 20px; /* Reduced margin */
+    flex-shrink: 0; /* Prevents description from shrinking */
+}
+
+/* Form Group (label + input/select/textarea) */
+.form-group {
+    margin-bottom: 12px; /* Reduced margin between form groups for compactness */
+    flex-shrink: 0; /* Prevents form groups from shrinking */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px; /* Reduced margin between label and input */
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 14px; /* Slightly smaller font */
+}
+
+/* Form Input/Select/Textarea Styles */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 20px); /* Adjusts width considering 10px padding on each side */
+    padding: 10px; /* Reduced padding for smaller input fields */
+    border: 1px solid #CED4DA;
+    border-radius: 5px; /* Slightly less rounded borders */
+    font-size: 15px; /* Slightly smaller font */
+    color: var(--text-color);
+    background-color: var(--card-background);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(102, 187, 106, 0.2); /* Reduced shadow spread on focus */
+}
+
+/* Form Actions (buttons at the bottom of the form) */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px; /* Reduced margin from content above */
+    gap: 8px; /* Reduced gap between buttons */
+
+    /* Sticky Button Styles */
+    position: sticky; /* Make buttons sticky within the scrollable content */
+    bottom: 0; /* Stick to the bottom of its scroll container */
+    background-color: var(--card-background); /* Add background to prevent content showing through */
+    padding-top: 10px; /* Add some padding above the buttons */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05); /* Optional: subtle shadow for separation */
+    z-index: 1; /* Ensure buttons are above scrolling content */
+    flex-shrink: 0; /* Prevents buttons from shrinking */
+}
+
+/* Hotel Form Grid Layout */
+.hotel-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for input fields */
+    gap: 12px; /* Reduced gap between grid items */
+    flex-grow: 1; /* Allows the grid to take up available space and push sticky footer down */
+    overflow-y: visible; /* Content within grid doesn't need its own scrollbar */
+    padding-right: 5px; /* Small adjustment for scrollbar visibility on some browsers */
+}
+
+.hotel-form-grid .full-width {
+    grid-column: 1 / -1; /* Makes an element span across all columns */
+}
+
+/* Entrance Animation for Modals */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .hotel-management__container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .hotel-management__add-btn {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hotel-management__table-wrapper {
+        border: none;
+    }
+
+    .modern-table thead {
+        display: none; /* Hide table headers on small screens */
+    }
+
+    .modern-table, .modern-table tbody, .modern-table tr, .modern-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .modern-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #E0E0E0;
+        border-radius: 4px;
+        box-shadow: var(--shadow-light);
+        background-color: var(--card-background);
+        overflow: hidden;
+    }
+
+    .modern-table td {
+        text-align: right;
+        padding-left: 45%; /* Space for data label */
+        position: relative;
+        border-bottom: 1px solid #F0F0F0;
+    }
+
+    .modern-table td:last-child {
+        border-bottom: none;
+        padding-bottom: 10px;
+    }
+
+    /* Data labels for table cells on small screens */
+    .modern-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40%;
+        padding-left: 10px;
+        font-weight: 500;
+        text-align: left;
+        color: var(--secondary-color);
+    }
+
+    /* Specific data labels for Hotel Management table */
+    .hotel-management__td:nth-of-type(1):before { content: "ID:"; }
+    .hotel-management__td:nth-of-type(2):before { content: "Name:"; }
+    .hotel-management__td:nth-of-type(3):before { content: "Location:"; }
+    .hotel-management__td:nth-of-type(4):before { content: "Contact Email:"; }
+    .hotel-management__td:nth-of-type(5):before { content: "Phone:"; }
+    .hotel-management__td:nth-of-type(6):before { content: "License No.:"; }
+    .hotel-management__td:nth-of-type(7):before { content: "Status:"; }
+    .hotel-management__td-actions:before { content: "Actions:"; }
+
+    /* Modal responsiveness */
+    .modal-content {
+        padding: 15px; /* Further reduced padding on small screens */
+        max-height: 95vh; /* Allows modal to take more height on small screens */
+    }
+
+    /* Single column layout for forms on small screens */
+    .hotel-form-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding-right: 0; /* No need for scrollbar padding in single column */
+    }
+
+    /* Stack buttons vertically in forms on small screens */
+    .form-actions {
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 5px; /* Add padding below buttons on mobile */
+    }
+    .form-actions .action-button {
+        width: 100%;
+        margin-left: 0;
+    }
+}

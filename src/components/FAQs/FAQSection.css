@@ -1,0 +1,156 @@
+/* FAQ Section - Visually Enhanced Glow Effect */
+.faq-section {
+  background: linear-gradient(135deg, #ffffff, #e0e0e0); /* Light gradient for background */
+  padding: 4rem 1.5rem; /* Ample padding */
+  box-shadow: none; /* No shadow for clean look */
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-container {
+  max-width: 750px; /* Width adjustment */
+  margin: 0 auto;
+  background: transparent; /* No background */
+  border-radius: 10px; /* Soft corners */
+}
+
+.faq-container h2 {
+  font-size: 2.4rem; /* Slightly larger heading */
+  font-weight: 700; 
+  color: #222;
+  text-align: center;
+  margin-bottom: 2rem; 
+  letter-spacing: 1px; 
+}
+
+.faq-container h4 {
+  color: #f85959; /* Heading color */
+  font-size: 1.2rem; /* Increased font size */
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.9); /* Light transparent background */
+  border-radius: 6px; 
+  cursor: pointer;
+  position: relative; /* For glow effect */
+  overflow: hidden; /* Ensure glow doesn't overflow */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: background 0.3s, border 0.3s; /* Smooth transition for background and border */
+}
+
+.faq-item.active {
+  border: 2px solid #f85959; /* Bold border color on expand */
+}
+
+.faq-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: rgba(248, 89, 89, 0.4); /* Vibrant glow color */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  z-index: 0; /* Behind the content */
+}
+
+.faq-item:hover::before {
+  opacity: 1; /* Show glow on hover */
+  animation: pulse 1s infinite; /* Add pulse animation */
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(248, 89, 89, 0.5), 0 0 20px rgba(248, 89, 89, 0.5); /* Initial soft glow */
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(248, 89, 89, 0.8), 0 0 40px rgba(248, 89, 89, 0.8); /* Brighter glow */
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(248, 89, 89, 0.5), 0 0 20px rgba(248, 89, 89, 0.5); /* Return to initial */
+  }
+}
+
+.faq-question {
+  padding: 1rem; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #333;
+  position: relative; 
+  z-index: 1; /* Above the glow */
+}
+
+.faq-icon {
+  font-size: 1.5rem; /* Icon size */
+  color: #f85959; 
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg); /* Rotate on activation */
+  color: #d63031; /* Darker color when active */
+}
+
+.faq-answer {
+  padding: 1rem; /* Padding for answers */
+  color: #666;
+  line-height: 1.5; 
+  background: white; /* Background is white */
+  border-top: 1px solid #eaeaea; 
+  opacity: 0; /* Start hidden */
+  transform: translateY(-10px); /* Start slightly above */
+  animation: fadeIn 0.4s forwards; /* Fade-in effect */
+  z-index: 1; /* Above the glow */
+}
+
+.faq-item.active .faq-answer {
+  opacity: 1; /* Fully visible when active */
+  transform: translateY(0); /* Move into place */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 3rem 1rem; 
+  }
+
+  .faq-container h2 {
+    font-size: 1.8rem; 
+  }
+
+  .faq-question {
+    padding: 0.8rem; 
+  }
+  
+  .faq-answer {
+    padding: 0.8rem; /* Increase padding */
+  }
+
+  .faq-icon {
+    font-size: 1.25rem; /* Smaller icons on mobile */
+  }
+}
+
+@media (max-width: 500px) {
+  .faq-container h2,
+  .faq-container h4 {
+    font-size: 1.5rem; 
+  }
+}
